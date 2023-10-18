@@ -10,11 +10,9 @@ def check_input():
     json_string = json.dumps(name)
     for char in sql_injection_chars:
         if char in json_string:
-            result=jsonify({"result":"unsanitised"})
-            break
-        else:
-            result=jsonify({"result":"sanitised"})
-    return result
+            return jsonify({"result":"unsanitised"})
+            
+    return jsonify({"result":"sanitised"})
     
 if __name__=="__main__":
     app.run(debug=True,port=8000)
