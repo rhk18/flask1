@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "0a88eaf0-6f86-4dc4-83ba-5cd8496ca9f4",
+		"name": "Flask api post request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New request",
+			"id": "1f98c089-e3d3-4537-aa28-172701242136",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"rupesh-\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/v1/sanitized/input/"
+			},
+			"response": []
+		}
+	]
+}
