@@ -8,12 +8,15 @@
 		{
 			"name": "New request",
 			"id": "1f98c089-e3d3-4537-aa28-172701242136",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"rupesh-\"}",
+					"raw": "{\"name\":\"rupesh\"}",
 					"options": {
 						"raw": {
 							"language": "json"
