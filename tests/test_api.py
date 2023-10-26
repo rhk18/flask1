@@ -1,18 +1,15 @@
 import requests
 
-def test_api():
+def test_api_1():
     url="http://127.0.0.1:8000/v1/sanitized/input/"
+    payload={"name":"rupesh"}
+    response=requests.post(url,json=payload)
+    expected_result={"result":"sanitised"}
+    assert response.json()==expected_result
 
-    payload1={"name":"rupesh"}
-    payload2={"name":"rupesh--"}
-
-    response1=requests.post(url,json=payload1)
-    response2=requests.post(url,json=payload2)
-
-    
-    expected_result1={"result":"sanitised"}
-    expected_result2={"result":"unsanitised"}
-
-    assert response1.json()==expected_result1
-    assert response2.json()==expected_result2
-
+def test_api_2():
+    url="http://127.0.0.1:8000/v1/sanitized/input/"
+    payload={"name":"rupesh/"}
+    response=requests.post(url,json=payload)
+    expected_result={"result":"unsanitised"}
+    assert response.json()==expected_result

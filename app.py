@@ -1,4 +1,5 @@
 from flask import Flask,request,json, jsonify
+import re
 
 app = Flask(__name__)
 
@@ -6,13 +7,11 @@ app = Flask(__name__)
 def check_input():
     data=request.get_json()
     name=data['name']
-    sql_injection_chars = ["'", ";", "--", "/"]
-    json_string = json.dumps(name)
-    for char in sql_injection_chars:
-        if char in json_string:
-            return jsonify({"result":"unsanitised"})
-            
-    return jsonify({"result":"sanitised"})
+    pattern =r"[^a-zA-Z0-9]"
+    if re.search(pattern,name):
+        return jsonify({"result":"unsanitised"})
+    else:
+        return jsonify({"result":"sanitised"})
     
 if __name__=="__main__":
     app.run(debug=True,port=8000)
